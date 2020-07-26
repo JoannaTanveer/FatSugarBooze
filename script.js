@@ -8,14 +8,14 @@ $.ajax({
     console.log(response)
 })
 
+const spoonSearch = 'beef'
+const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
 
-const apiKeySpoon = "f5609a52a62f4012a1dbb5e2733393c4";
-
-var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}?ingredients=apples,+flour,+sugar&number=2`;
+var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}&ingredients=beef,+cheddar&number=2`;
 
 $.ajax({
     url: queryURLSpoon,
     method: "GET"
 }).then(function(response) {
-    console.log(response, "fart")
+    console.log(response)
 })
