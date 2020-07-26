@@ -3,13 +3,28 @@ body {
     color: #232c33;
     font-size: 21px;
 }
+.dropDownMenu {
+    background-color: aqua;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    margin: 80px;
+    border: 0px;
+    padding: 1px;
+}
 
 .box {
-    color: white;
+    background-color: black;
+    opacity: 0.2;
     margin: 100px;
     padding: 100px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: blanchedalmond;
     
 }
 p {
     color: #232c33
+}
+.subMenu-1 {
+    display:none;
+
 }
