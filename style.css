@@ -1,0 +1,19 @@
+body {
+    background-image: url('./photos/AdobeStock_300929807.jpeg');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: #232c33;
+    font-size: 21px;
+}
+
+.box {
+    color: white;
+    margin: 100px;
+    padding: 100px;
+    
+}
+p {
+    color: #232c33
+}

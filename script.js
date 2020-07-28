@@ -1,4 +1,3 @@
-
 // let drinksView = document.getElementById("id for div where drinks will populate")
 // let submitButton = document.getElementById("id for submit/search button");
 
@@ -8,6 +7,7 @@ $("#drinksView").empty()
 
 let apiKeyBooze = '1';
 let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userInput }`;
+
 
 
 
@@ -62,6 +62,18 @@ $.ajax({
 
 
 
-// $(".city").html("<h1>" + response.name + " Weather Details</h1>");
-// $(".wind").text("Wind Speed: " + response.wind.speed);
-// $(".humidity").text("Humidity: " + response.main.humidity);
+
+
+
+const spoonSearch = 'beef'
+const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
+
+var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}&ingredients=beef,+cheddar&number=2`;
+
+$.ajax({
+    url: queryURLSpoon,
+    method: "GET"
+}).then(function(response) {
+    console.log(response)
+})
+
