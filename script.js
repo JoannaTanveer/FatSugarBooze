@@ -60,11 +60,6 @@ $.ajax({
     measurementsThree.text(response.drinks.strMeasure3)
 })
 
-
-
-
-
-
 const spoonSearch = 'beef'
 const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
 
@@ -76,4 +71,3 @@ $.ajax({
 }).then(function(response) {
     console.log(response)
 })
-
