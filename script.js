@@ -110,13 +110,27 @@ $.ajax({
 
 
 
-var ingredientButton= document.getElementById('addBtn');
+var fatButton= document.getElementById('fatBtn');
 
-ingredientButton.addEventListener ('click', function(event){
+fatButton.addEventListener ('click', function(event){
     event.preventDefault();
-    var userEntry= document.getElementById('userInput');
-    console.log(userEntry.value, 'Henry');
+    var fatEntry= document.getElementById('fatInput');
+    //console.log(userEntry.value, 'Henry');
     
 })
+var sugarButton= document.getElementById('sugarBtn');
+
+sugarButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var sugarEntry= document.getElementById('sugarInput');
+})
+
+var boozeButton= document.getElementById('boozeBtn');
+
+boozeButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var boozeEntry= document.getElementById('boozeInput');
+})
+
     
    
