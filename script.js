@@ -1,13 +1,8 @@
-let drinksView = document.getElementById("id for div where drinks will populate")
-let submitButton = document.getElementById("id for submit/search button");
 
-let userInput = vodka
-$("#drinksView").empty()
-
-
+// let userSearch = userEntry.value.trim();
 let apiKeyBooze = '1';
-let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userInput }`;
-
+let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userSearch }`;
+let ingredientsURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ userSearch }`
 
 
 
@@ -16,49 +11,161 @@ $.ajax({
     method: "GET"
 }).then(function(response) {
     console.log(response);
+    // console.log(response.drinks[0].strDrink)
+  
 
     // create an element for each item to be displayed
-    var drink = $("<div>");
-    drink.addClass("drink-name");   
-    drinks.text(response.drinks.strDrink);
-    $("#drinksView").append(drinks);
+for (i = 0; i < response.drinks.length; i++){
+    var drink = document.getElementById("drinksView");
+    var drinkName = response.drinks[i].strDrink;  
+    var displayDrinkName = document.createElement("p");
+    displayDrinkName.textContent = drinkName;
+    drink.appendChild(displayDrinkName);
+    
+    var drinkThumb = document.getElementById("drinksView");
+    var drinkThumbnail = response.drinks[i].strDrinkThumb;
+    var displayThumbnail = document.createElement("img");
+    displayThumbnail.src= drinkThumbnail;
+    drink.appendChild(displayThumbnail);
 
-    // thumbnail image
-    var drinkThumb = $("<div>");
-    drinkThumb.addClass("drink-thumbnail");
-    drinkThumb.text(response.drink.strThumb);
+    var drinkInstructions = document.getElementById("drinksView")
+    var instructions = response.drinks[i].strInstructions;
+    var displayInstructions = document.createElement("p");
+    displayInstructions.textContent = instructions;
+    drink.appendChild(displayInstructions);
 
-    // ingredient1,2,3
-    var ingredientOne = $("<div>");
-    ingredientOne.addClass("ingredient-one");
-    ingredientOne.text(response.drinks.strIngredient1);
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient1;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-    var ingredientTwo = $("<div>");
-    ingredientTwo.addClass("ingredient-two");
-    ingredientTwo.text(response.drinks.strIngredient2);
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+        
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient2;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-    var ingredientThree = $("<div>");
-    ingredientThree.addClass("ingredient-three");
-    ingredientThree.text(response.drinks.strIngredient3);
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
+    
 
-    // instructions
-    var instructions = $("<div>");
-    instructions.addClass("instructions");
-    instructions.text(response.drinks.strInstructions);
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient3;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-    // measurements
-    var measurementsOne = $("<div>");
-    measurementsOne.addClass("measurements-one");
-    measurementsOne.text(response.drinks.strMeasure1)
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+        
 
-    var measurementsTwo = $("<div>");
-    measurementsTwo.addClass("measurements-two");
-    measurementsTwo.text(response.drinks.strMeasure2)
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient4;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-    var measurementsThree = $("<div>");
-    measurementsThree.addClass("measurements-three");
-    measurementsThree.text(response.drinks.strMeasure3)
-})
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
+    
+
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient5;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
+
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
+    });      
+
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient6;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
+
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
+    });
+        
+    
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure1;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure2;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure3;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+    
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure4;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure5;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure6;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+}
+  
+});
+
+
+
 
 const spoonSearch = 'beef'
 const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
@@ -71,52 +178,3 @@ $.ajax({
 }).then(function(response) {
     console.log(response)
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var ingredientButton= document.getElementById('addBtn');
-
-ingredientButton.addEventListener ('click', function(event){
-    event.preventDefault();
-    var userEntry= document.getElementById('userInput');
-    console.log(userEntry.value, 'Henry');
-    
-})
-    
-   
