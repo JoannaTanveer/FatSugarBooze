@@ -1,11 +1,14 @@
 
+
+
+
 // let drinksView = document.getElementById("id for div where drinks will populate")
 // let submitButton = document.getElementById("id for submit/search button");
 
 let userInput = "vodka"    //$("idfrominputbox").val().trim(); this will grab text from input box
 $("#drinksView").empty()
 
-=======
+
 
 
 // let userSearch = userEntry.value.trim();
@@ -177,6 +180,7 @@ for (i = 0; i < response.drinks.length; i++){
 
 
 
+
 document.addEventListener('DOMContentLoaded', function() {
     const ingredient = prompt('What ingredient');  //This will be from Erin's search
     //var dishType = //Variable from drop down box, still dont know how to do this....
@@ -239,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         });
 });
-=======
+
 const spoonSearch = 'beef'
 const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
 
@@ -276,6 +280,4 @@ boozeButton.addEventListener('click', function(event){
 })
 
     
-   
-
 
