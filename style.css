@@ -15,8 +15,8 @@ h2{
 
 .ingredient-container{
 
-    width: 300px;
-    padding: 12px 20px;
+    width: 600px;
+    padding: 14px 40px;
     margin: 8px 0px;
     display: inline-block;
     border-radius: 4px;
@@ -32,7 +32,7 @@ h2{
     
 }
 p {
-    color: #232c33
+    color: white;
 }
 
 .add {
@@ -47,37 +47,22 @@ p {
     opacity: 75%;
     border-radius: 25px;
     color:black;
-    padding: 70px;
+    padding: 10px;
 }
 
-/*.header {
-    height: 50px;
-    width: 100%;
-    background-color: #FAF0E6;
-    opacity: 75%;
-}*/
 
 .header {
     padding: 30px;
 }
 
 
-h1{
+h1 {
     font-size: large;
     font-family: 'Arvo', serif;
-
-.footer {
-    position: bottom;
-    
-
-.footer {
-    position: bottom;
-    
-
 }
 
-.logoF {
-    float: left;
+.footer {
+    position: bottom;
 }
 
 
@@ -86,7 +71,31 @@ h1{
     display: flex;
 }
 
+
 .display-image {
     width: 20px;
     height: 20px;
 }
+
+
+.welcome {
+    font-size: xx-large;
+    text-align: center;
+    font-family: 'Arvo', serif;
+    color: white;
+    
+
+button {
+    background-color:#000000;
+    border:none;
+    border-radius: 50px;
+    padding: 12px 28px;
+    color:#ffffff;
+    text-align: center;
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+}
+
