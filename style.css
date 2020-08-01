@@ -1,5 +1,5 @@
 body {
-    background-image: url('./photos/AdobeStock_300929807.jpeg');
+    background-image: url('./photos/AdobeStock_300929807.png');
     height: 100%;
     background-position: center;
     background-size: cover;
@@ -8,8 +8,8 @@ body {
     font-size: 21px;
 }
 
-h1{
-    color: whitesmoke;
+h2{
+    color: #000000;
     font-size: 15px;
 }
 
@@ -22,6 +22,8 @@ h1{
     border-radius: 4px;
     
 }
+
+
 
 .box {
     color: white;
@@ -38,3 +40,20 @@ p {
     color: black;
     margin: 4px;
 }
+
+.text-block {
+    position: center;
+    background-color: #FAF0E6;
+    opacity: 75%;
+    border-radius: 25px;
+    color:black;
+    padding: 70px;
+}
+
+.header {
+    height: 50px;
+    width: 100%;
+    background-color: #FAF0E6;
+    opacity: 75%;
+}
+
