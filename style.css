@@ -85,3 +85,8 @@ h1{
     align-items: center;
     display: flex;
 }
+
+.display-image {
+    width: 20px;
+    height: 20px;
+}
