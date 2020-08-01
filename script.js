@@ -170,6 +170,7 @@ for (i = 0; i < response.drinks.length; i++){
 const spoonSearch = 'beef'
 const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
 
+
 var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}&ingredients=beef,+cheddar&number=2`;
 
 $.ajax({
@@ -178,3 +179,29 @@ $.ajax({
 }).then(function(response) {
     console.log(response)
 })
+=======
+var fatButton= document.getElementById('fatBtn');
+
+fatButton.addEventListener ('click', function(event){
+    event.preventDefault();
+    var fatEntry= document.getElementById('fatInput');
+    //console.log(userEntry.value, 'Henry');
+    
+})
+var sugarButton= document.getElementById('sugarBtn');
+
+sugarButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var sugarEntry= document.getElementById('sugarInput');
+})
+
+var boozeButton= document.getElementById('boozeBtn');
+
+boozeButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var boozeEntry= document.getElementById('boozeInput');
+})
+
+    
+   
+

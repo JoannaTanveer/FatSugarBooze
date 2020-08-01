@@ -24,33 +24,39 @@
 
     <div class="box">
 
+        <div class= 'container' ></div>
+            <form id= 'user-input'>
+            <div class= 'text-block'>
+            <h1>Want some fat?</h1> 
+            <div class= 'ingredient-container' id= 'food' style= 'display: flex; flex: 1 1 0%; height: 100%; position: relative;'>
+             <input placeholder='Enter main ingredient' id= 'fatInput' type= 'text' autocomplete= 'off'>
+             <div class= 'add'>
+                 <button type= 'submit' id= fatBtn >Find It</button>
+             </div>
+            </form>
+        </div>
+        
         <div class= 'container' >
-        <form id= 'user-input'>
-            <div class="text-block">
-                <h2>Something about to expire? Use it up!</h2> 
+            <form id= 'user-input'>
+                <h1>Feeling some sugar?</h1> 
                 <div class= 'ingredient-container' id= 'food' style= 'display: flex; flex: 1 1 0%; height: 100%; position: relative;'>
-                <input placeholder='Enter ingredient' id= 'userInput' type= 'text' autocomplete= 'off'>
-                <div class= 'add'>
-                    <button type= 'submit' id= addBtn >Add!</button>
-                </div>
+                 <input placeholder='Enter main ingredient' id= 'sugarInput' type= 'text' autocomplete= 'off'>
+                 <div class= 'add'>
+                     <button type= 'submit' id= sugarBtn >Find It</button>
+                 </div>
                 </form>
             </div>
-        
 
-        <p id= 'result'></p>
-
-        <label for="fatSugarBooze">Pick your shit!</label>
-            <select name="fatSugarBooze id="fatSugarBooze>
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="dinner">Dinner</option>
-            <option value="dessert">Dessert</option>
-            <option value="booze">Booze</option>
-            </select>
-        
-        <div class = "buttonSubmit">
-            <button type="button">Click Me!</button>
-        </div>
+            <div class= 'container' >
+                <form id= 'user-input'>
+                    <h1>Want to booze it up?</h1> 
+                    <div class= 'ingredient-container' id= 'food' style= 'display: flex; flex: 1 1 0%; height: 100%; position: relative;'>
+                     <input placeholder='Enter main ingredient' id= 'boozeInput' type= 'text' autocomplete= 'off'>
+                     <div class= 'add'>
+                         <button type= 'submit' id= boozeBtn >Find It</button>
+                     </div>
+                    </form>
+                </div>
 
         
     </div>
