@@ -50,14 +50,24 @@ p {
     padding: 70px;
 }
 
-.header {
+/*.header {
     height: 50px;
     width: 100%;
     background-color: #FAF0E6;
     opacity: 75%;
+}*/
+
+.header {
+    padding: 30px;
 }
 
+<<<<<<< HEAD
 h1{
     font-size: large;
     font-family: 'Arvo', serif;
+=======
+.footer {
+    position: bottom;
+    
+>>>>>>> ca5ca3a683825076c309a9ee059d53fa2edd00f8
 }
