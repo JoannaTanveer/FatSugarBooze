@@ -75,3 +75,13 @@ h1{
     
 
 }
+
+.logoF {
+    float: left;
+}
+
+
+.category {
+    align-items: center;
+    display: flex;
+}
