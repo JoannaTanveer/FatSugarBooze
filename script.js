@@ -1,4 +1,16 @@
 
+
+
+
+// let drinksView = document.getElementById("id for div where drinks will populate")
+// let submitButton = document.getElementById("id for submit/search button");
+
+let userInput = "vodka"    //$("idfrominputbox").val().trim(); this will grab text from input box
+$("#drinksView").empty()
+
+
+
+
 // let userSearch = userEntry.value.trim();
 let apiKeyBooze = '1';
 let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userSearch }`;
@@ -167,6 +179,71 @@ for (i = 0; i < response.drinks.length; i++){
 
 
 
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const ingredient = prompt('What ingredient');  //This will be from Erin's search
+    //var dishType = //Variable from drop down box, still dont know how to do this....
+    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${ingredient}$number=50`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            const recipeIds = json.map(function(recipe) { return recipe.id});
+            fetch(`https://api.spoonacular.com/recipes/informationBulk?apiKey=${key}&ids=${recipeIds.join(',')}&includeNutrition=true`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    
+                    
+                    for (i = 0; i< json.length; i++ ) {
+                    // Creating element to hold each recipe
+                    var recipeDiv =$('<div class="recipe">');  //Need to work on recipe div css
+                    //---------------------------------------------------------------
+                        if (json[i].healthScore > 30) {
+                        // Retrieving the URL for the image
+                        var imgURL = json[i].image;
+                    
+                        //Creating element to hold image
+                        var image = $('<img>').attr('src', imgURL);
+                    
+                   
+                        
+                        
+
+                        //----------------------------------------------------------------
+                        // Retrieving the recipe title
+                        var title = json[i].title //may need to parse?
+
+                        //creating <p> tag to display title
+                        var titleDisplay = $('<p class="title">').text(title);
+
+                        //Appending title to recipeDiv
+                        recipeDiv.append(titleDisplay);
+
+                        //----------------------------------------------------------------
+                        //Retrieving URL for recipe
+                        var websiteURL = json[i].sourceUrl
+
+                        //create <a> tag to make thumbnail clickable
+                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        // Appending the image
+                        anchor.append(image); 
+                        //Appending <a> to thumbnail 
+                        recipeDiv.append(anchor);
+
+                        //----------------------------------------------------------------
+                        //Retrieving URL for HealthScore
+                        var healthURL = json[i].healthScore
+                        console.log(healthURL, 'healthscore');
+                      }}
+                
+        });
+        });
+});
+
 const spoonSearch = 'beef'
 const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
 
@@ -203,5 +280,4 @@ boozeButton.addEventListener('click', function(event){
 })
 
     
-   
 
