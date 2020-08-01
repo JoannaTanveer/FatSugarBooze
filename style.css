@@ -65,3 +65,13 @@ p {
     position: bottom;
     
 }
+
+.logoF {
+    float: left;
+}
+
+
+.category {
+    align-items: center;
+    display: flex;
+}
