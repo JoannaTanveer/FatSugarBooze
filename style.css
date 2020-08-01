@@ -32,7 +32,7 @@ h2{
     
 }
 p {
-    color: #232c33
+    color: white;
 }
 
 .add {
@@ -47,7 +47,7 @@ p {
     opacity: 75%;
     border-radius: 25px;
     color:black;
-    padding: 70px;
+    padding: 10px;
 }
 
 
@@ -60,6 +60,7 @@ h1 {
     font-size: large;
     font-family: 'Arvo', serif;
 }
+
 .footer {
     position: bottom;
 }
@@ -70,6 +71,13 @@ h1 {
     display: flex;
 }
 
+
+.welcome {
+    font-size: xx-large;
+    text-align: center;
+    font-family: 'Arvo', serif;
+    color: white;
+    
 
 button {
     background-color:#000000;
