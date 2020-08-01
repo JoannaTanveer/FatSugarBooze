@@ -10,7 +10,6 @@ body {
 
 h1{
     color: whitesmoke;
-    font-family: monospace;
     font-size: 15px;
 }
 
@@ -32,4 +31,10 @@ h1{
 }
 p {
     color: #232c33
+}
+
+.add {
+    border-radius: 16px;
+    color: black;
+    margin: 4px;
 }

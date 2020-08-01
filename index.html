@@ -12,19 +12,24 @@
 
 
 <body>
-  
-    <div class= 'container' >
-        <form>
-            <h1>What do you want to include?</h1> 
-            <div class= 'ingredient-container' id= 'user input' style= 'display: flex; flex: 1 1 0%; height: 100%; position: relative;'>
-             <input placeholder='Enter ingredient' type= 'text' autocomplete= 'on' class= 'ingredient-container'>
-            </form>
-     
-         
-    </div>
+
 
     <div class="box">
-        <p>lorem dahsasl asjdapsjmpf asflknafl as aojskflakjsf</p>
+
+        <div class= 'container' >
+        <form id= 'user-input'>
+            <h1>Something about to expire? Use it up!</h1> 
+            <div class= 'ingredient-container' id= 'food' style= 'display: flex; flex: 1 1 0%; height: 100%; position: relative;'>
+             <input placeholder='Enter ingredient' id= 'userInput' type= 'text' autocomplete= 'off'>
+             <div class= 'add'>
+                 <button type= 'submit' id= addBtn >Add!</button>
+             </div>
+            </form>
+        </div>
+        
+
+        <p id= 'result'></p>
+
         <label for="fatSugarBooze">Pick your shit!</label>
             <select name="fatSugarBooze id="fatSugarBooze>
             <option value="breakfast">Breakfast</option>
@@ -37,6 +42,8 @@
         <div class = "buttonSubmit">
             <button type="button">Click Me!</button>
         </div>
+
+        
     </div>
 
 

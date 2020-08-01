@@ -1,7 +1,7 @@
-// let drinksView = document.getElementById("id for div where drinks will populate")
-// let submitButton = document.getElementById("id for submit/search button");
+let drinksView = document.getElementById("id for div where drinks will populate")
+let submitButton = document.getElementById("id for submit/search button");
 
-// let userInput = $("idfrominputbox").val().trim(); this will grab text from input box
+let userInput = vodka
 $("#drinksView").empty()
 
 
@@ -71,3 +71,52 @@ $.ajax({
 }).then(function(response) {
     console.log(response)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var ingredientButton= document.getElementById('addBtn');
+
+ingredientButton.addEventListener ('click', function(event){
+    event.preventDefault();
+    var userEntry= document.getElementById('userInput');
+    console.log(userEntry.value, 'Henry');
+    
+})
+    
+   
