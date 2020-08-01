@@ -76,9 +76,9 @@ for (i = 0; i < response.drinks.length; i++){
     drink.appendChild(displayIngredients);
 
 
-//     if (ingredients === null, function(){
-//         displayIngredients.addClass("display");
-//     });
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
         
 
 
