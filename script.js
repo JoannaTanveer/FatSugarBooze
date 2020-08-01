@@ -1,78 +1,262 @@
-document.addEventListener('DOMContentLoaded', function() {
-let drinksView = document.getElementById("id for div where drinks will populate")
-let submitButton = document.getElementById("id for submit/search button");
-var recipeDiv=$(".recipeDiv")
-
-// let userInput = "vodka"
-// $("#drinksView").empty()
 
 
-// let apiKeyBooze = '1';
-// let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userInput }`;
 
-var ingredientButton= document.getElementById('addBtn');
 
-ingredientButton.addEventListener ('click', function(event){
-    event.preventDefault();
-    var userEntry= document.getElementById('userInput');
-    console.log(userEntry.value, 'Henry');
+// let drinksView = document.getElementById("id for div where drinks will populate")
+// let submitButton = document.getElementById("id for submit/search button");
+
+let userInput = "vodka"    //$("idfrominputbox").val().trim(); this will grab text from input box
+$("#drinksView").empty()
+
+
+
+
+// let userSearch = userEntry.value.trim();
+let apiKeyBooze = '1';
+let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ userSearch }`;
+let ingredientsURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ userSearch }`
+
+
+
+$.ajax({
+    url: queryURLBooze,
+    method: "GET"
+}).then(function(response) {
+    console.log(response);
+    // console.log(response.drinks[0].strDrink)
+  
+
+    // create an element for each item to be displayed
+for (i = 0; i < response.drinks.length; i++){
+    var drink = document.getElementById("drinksView");
+    var drinkName = response.drinks[i].strDrink;  
+    var displayDrinkName = document.createElement("p");
+    displayDrinkName.textContent = drinkName;
+    drink.appendChild(displayDrinkName);
+    
+    var drinkThumb = document.getElementById("drinksView");
+    var drinkThumbnail = response.drinks[i].strDrinkThumb;
+    var displayThumbnail = document.createElement("img");
+    displayThumbnail.src= drinkThumbnail;
+    drink.appendChild(displayThumbnail);
+
+    var drinkInstructions = document.getElementById("drinksView")
+    var instructions = response.drinks[i].strInstructions;
+    var displayInstructions = document.createElement("p");
+    displayInstructions.textContent = instructions;
+    drink.appendChild(displayInstructions);
+
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient1;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+        
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient2;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
     
 
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient3;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-// $.ajax({
-//     url: queryURLBooze,
-//     method: "GET"
-// }).then(function(response) {
-//     console.log(response);
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+        
 
-//     // create an element for each item to be displayed
-//     var drink = $("<div>");
-//     drink.addClass("drink-name");   
-//     drinks.text(response.drinks.strDrink);
-//     $("#drinksView").append(drinks);
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient4;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-//     // thumbnail image
-//     var drinkThumb = $("<div>");
-//     drinkThumb.addClass("drink-thumbnail");
-//     drinkThumb.text(response.drink.strThumb);
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
+    
 
-//     // ingredient1,2,3
-//     var ingredientOne = $("<div>");
-//     ingredientOne.addClass("ingredient-one");
-//     ingredientOne.text(response.drinks.strIngredient1);
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient5;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-//     var ingredientTwo = $("<div>");
-//     ingredientTwo.addClass("ingredient-two");
-//     ingredientTwo.text(response.drinks.strIngredient2);
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
+    });      
 
-//     var ingredientThree = $("<div>");
-//     ingredientThree.addClass("ingredient-three");
-//     ingredientThree.text(response.drinks.strIngredient3);
+    var drinkIngredients = document.getElementById("drinksView");
+    var ingredients = response.drinks[i].strIngredient6;
+    var displayIngredients = document.createElement("p")
+    displayIngredients.textContent = ingredients;
+    drink.appendChild(displayIngredients);
 
-//     // instructions
-//     var instructions = $("<div>");
-//     instructions.addClass("instructions");
-//     instructions.text(response.drinks.strInstructions);
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
+    });
+        
+    
 
-//     // measurements
-//     var measurementsOne = $("<div>");
-//     measurementsOne.addClass("measurements-one");
-//     measurementsOne.text(response.drinks.strMeasure1)
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure1;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
 
-//     var measurementsTwo = $("<div>");
-//     measurementsTwo.addClass("measurements-two");
-//     measurementsTwo.text(response.drinks.strMeasure2)
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
 
-//     var measurementsThree = $("<div>");
-//     measurementsThree.addClass("measurements-three");
-//     measurementsThree.text(response.drinks.strMeasure3)
-// })
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure2;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure3;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+    
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure4;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure5;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+
+    var drinkMeasurements = document.getElementById("drinksView");
+    var measurements = response.drinks[i].strMeasure6;
+    var displayMeasurements = document.createElement("p");
+    displayMeasurements.textContent = measurements;
+    drink.appendChild(displayMeasurements);
+
+    if (measurements === null, function() {
+        displayMeasurements.addClass("display");
+    });
+}
+  
+});
 
 
 
 
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    const ingredient = prompt('What ingredient');  //This will be from Erin's search
+    //var dishType = //Variable from drop down box, still dont know how to do this....
+    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${ingredient}$number=50`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            const recipeIds = json.map(function(recipe) { return recipe.id});
+            fetch(`https://api.spoonacular.com/recipes/informationBulk?apiKey=${key}&ids=${recipeIds.join(',')}&includeNutrition=true`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                    
+                    
+                    for (i = 0; i< json.length; i++ ) {
+                    // Creating element to hold each recipe
+                    var recipeDiv =$('<div class="recipe">');  //Need to work on recipe div css
+                    //---------------------------------------------------------------
+                        if (json[i].healthScore > 30) {
+                        // Retrieving the URL for the image
+                        var imgURL = json[i].image;
+                    
+                        //Creating element to hold image
+                        var image = $('<img>').attr('src', imgURL);
+                    
+                   
+                        
+                        
+
+                        //----------------------------------------------------------------
+                        // Retrieving the recipe title
+                        var title = json[i].title //may need to parse?
+
+                        //creating <p> tag to display title
+                        var titleDisplay = $('<p class="title">').text(title);
+
+                        //Appending title to recipeDiv
+                        recipeDiv.append(titleDisplay);
+
+                        //----------------------------------------------------------------
+                        //Retrieving URL for recipe
+                        var websiteURL = json[i].sourceUrl
+
+                        //create <a> tag to make thumbnail clickable
+                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        // Appending the image
+                        anchor.append(image); 
+                        //Appending <a> to thumbnail 
+                        recipeDiv.append(anchor);
+
+                        //----------------------------------------------------------------
+                        //Retrieving URL for HealthScore
+                        var healthURL = json[i].healthScore
+                        console.log(healthURL, 'healthscore');
+                      }}
+                
+        });
+        });
+});
+
+const spoonSearch = 'beef'
+const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
+
+
+var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}&ingredients=beef,+cheddar&number=2`;
+
+$.ajax({
+    url: queryURLSpoon,
+    method: "GET"
+}).then(function(response) {
+    console.log(response)
+})
+=======
 var fatButton= document.getElementById('fatBtn');
 
 fatButton.addEventListener ('click', function(event){
@@ -160,3 +344,4 @@ boozeButton.addEventListener('click', function(event){
 
 // })
 })
+
