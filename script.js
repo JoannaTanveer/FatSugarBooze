@@ -1,7 +1,9 @@
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener('DOMContentLoaded', function() {
+
 
 var boozeButton = document.getElementById("boozeBtn");
+
 
 boozeButton.addEventListener('click', function(event){
      event.preventDefault();
@@ -11,11 +13,13 @@ boozeButton.addEventListener('click', function(event){
     let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ boozeEntry.value }`;
     // let ingredientsURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ boozeEntry }`;
 
-    
+
 
     // console.log(boozeEntry.value, "booze")
     
     
+
+
 
 $.ajax({
     url: queryURLBooze,
@@ -171,14 +175,17 @@ for (i = 0; i < response.drinks.length; i++){
 
 
 
+var fatButton= document.getElementById('fatBtn');
 
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    const ingredient = prompt('What ingredient');  //This will be from Erin's search
-    //var dishType = //Variable from drop down box, still dont know how to do this....
-    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${ingredient}$number=50`)
+fatButton.addEventListener ('click', function(event){
+    event.preventDefault();
+    var fatEntry= document.getElementById('fatInput');
+    console.log(fatEntry.value, 'Henry');
+    // let recipeDiv = $(".recipeDiv");
+    
+    var key = 'e2f2b2eb5b984038a6729ef1cc1215f9'; // CHANGE THIS TO YOUR API KEY
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${fatEntry.value}$number=50`)
         .then(function(response) {
             return response.json();
         })
@@ -189,22 +196,95 @@ document.addEventListener('DOMContentLoaded', function() {
                     return response.json();
                 })
                 .then(function(json) {
-                    
+                  console.log(json)  
                     
                     for (i = 0; i< json.length; i++ ) {
                     // Creating element to hold each recipe
-                    var recipeDiv =$('<div class="recipe">');  //Need to work on recipe div css
-                    //---------------------------------------------------------------
-                        if (json[i].healthScore > 30) {
+                    let recipeDiv = $(".recipeDiv");
+                    //--------------------------------------------------------------
+                        if (json[i].healthScore < 20) {
                         // Retrieving the URL for the image
                         var imgURL = json[i].image;
+
                     
                         //Creating element to hold image
-                        var image = $('<img>').attr('src', imgURL);
+                      var image = $('<img>').attr('src', imgURL);
                     
                    
                         
                         
+
+                       //----------------------------------------------------------------
+                     // Retrieving the recipe title
+                       var title = json[i].title //may need to parse?
+
+                        //creating <p> tag to display title
+                        var titleDisplay = $('<p class="title">').text(title);
+
+                       //Appending title to recipeDiv
+                        recipeDiv.append(titleDisplay);
+                        //----------------------------------------------------------------
+                       //Retrieving URL for recipe
+                          var websiteURL = json[i].sourceUrl
+
+                       //create <a> tag to make thumbnail clickable
+                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                     //Appending the image
+                       anchor.append(image); 
+                      //Appending <a> to thumbnail 
+                       recipeDiv.append(anchor);
+
+                        //----------------------------------------------------------------
+                         //Retrieving URL for HealthScore
+                         var healthURL = json[i].healthScore
+                        console.log(healthURL, 'healthscore');
+                       }}
+                
+
+        });
+        });
+
+} )  
+
+
+var sugarButton= document.getElementById('sugarBtn');
+
+sugarButton.addEventListener('click', function(event){
+    event.preventDefault();
+    var sugarEntry= document.getElementById('sugarInput');
+    console.log(sugarEntry.value, "sugar")
+
+    var key = 'e2f2b2eb5b984038a6729ef1cc1215f9'; // CHANGE THIS TO YOUR API KEY
+    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${sugarEntry.value}$number=50`)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(json) {
+            const recipeIds = json.map(function(recipe) { return recipe.id});
+            fetch(`https://api.spoonacular.com/recipes/informationBulk?apiKey=${key}&ids=${recipeIds.join(',')}&includeNutrition=true`)
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(json) {
+                  console.log(json)  
+                    
+                    for (i = 0; i< json.length; i++ ) {
+                    // Creating element to hold each recipe
+                    let recipeDiv = $(".recipeDiv");
+                    //---------------------------------------------------------------
+                        if (json[i].healthScore < 20) {
+                        // Retrieving the URL for the image
+                        var imgURL = json[i].image;
+
+
+                    
+                      //Creating element to hold image
+                       var image = $('<img>').attr('src', imgURL);
+                    
+                   
+                        
+                        
+
 
                         //----------------------------------------------------------------
                         // Retrieving the recipe title
@@ -221,11 +301,15 @@ document.addEventListener('DOMContentLoaded', function() {
                         var websiteURL = json[i].sourceUrl
 
                         //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
+                        // var anchorTab =$('<a>').prop('target', '_blank')
                         // Appending the image
                         anchor.append(image); 
+                        anchor.append(titleDisplay);
+                        // anchor.append(anchorTab);
                         //Appending <a> to thumbnail 
                         recipeDiv.append(anchor);
+                        // recipeDiv.append(anchorTab);
 
                         //----------------------------------------------------------------
                         //Retrieving URL for HealthScore
@@ -235,95 +319,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 
         });
         });
-});
 
-const spoonSearch = 'beef'
-const apiKeySpoon = "85dd435db770493c8aedbd1a1e12e596";
-
-
-var queryURLSpoon = `https://api.spoonacular.com/recipes/findByIngredients?apiKey=${apiKeySpoon}&ingredients=beef,+cheddar&number=2`;
-
-$.ajax({
-    url: queryURLSpoon,
-    method: "GET"
-}).then(function(response) {
-    console.log(response)
-})
-
-var fatButton= document.getElementById('fatBtn');
-
-fatButton.addEventListener ('click', function(event){
-    event.preventDefault();
-    var fatEntry= document.getElementById('fatInput');
-    //console.log(userEntry.value, 'Henry');
-    
-})
-var sugarButton= document.getElementById('sugarBtn');
-
-sugarButton.addEventListener('click', function(event){
-    event.preventDefault();
-    var sugarEntry= document.getElementById('sugarInput');
-})
+} )  
 
 
 
 
-    
-   
-    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
-    fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${userEntry.value}$number=50`)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(json) {
-            const recipeIds = json.map(function(recipe) { return recipe.id});
-            fetch(`https://api.spoonacular.com/recipes/informationBulk?apiKey=${key}&ids=${recipeIds.join(',')}&includeNutrition=true`)
-                .then(function(response) {
-                    return response.json();
-                })
-                .then(function(json) {
-                    
-                    
-                    for (i = 0; i< json.length; i++ ) {
-                    // Creating element to hold each recipe
-                    
-                    //---------------------------------------------------------------
-                        if (json[i].healthScore > 20) {
-                        // Retrieving the URL for the image
-                        var imgURL = json[i].image;
-                    
-                        //Creating element to hold image
-                        var image = $('<img>').attr('src', imgURL);
-                    
-                   
-                        
-                        
 
-                        //----------------------------------------------------------------
-                        // Retrieving the recipe title
-                        var title = json[i].title //may need to parse?
-                            console.log(title, 'title');
-                        //creating <p> tag to display title
-                        var titleDisplay = $('<p class="title">').text(title);
 
-                        //Appending title to recipeDiv
-                        recipeDiv.append(titleDisplay);
 
-                        //----------------------------------------------------------------
-                        //Retrieving URL for recipe
-                        var websiteURL = json[i].sourceUrl
+           
+                  
 
-                        //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
-                        // Appending the image
-                        anchor.append(image); 
-                        //Appending <a> to thumbnail 
-                        recipeDiv.append(anchor);
 
-                        //----------------------------------------------------------------
-                        //Retrieving URL for HealthScore
-                        var healthURL = json[i].healthScore
-                        console.log(healthURL, 'healthscore');
-                      }}
-                    })
-                });
