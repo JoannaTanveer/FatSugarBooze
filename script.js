@@ -236,9 +236,9 @@ fatButton.addEventListener ('click', function(event){
                           var websiteURL = json[i].sourceUrl
 
                        //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
-                     //Appending the image
-                       anchor.append(image); 
+                        var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
+                       anchor.append(image);
+                       anchor.append(titleDisplay);
                       //Appending <a> to thumbnail 
                        recipeDiv.append(anchor);
 
@@ -309,9 +309,10 @@ sugarButton.addEventListener('click', function(event){
                         var websiteURL = json[i].sourceUrl
 
                         //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
                         // Appending the image
                         anchor.append(image); 
+                        anchor.append(titleDisplay);
                         //Appending <a> to thumbnail 
                         recipeDiv.append(anchor);
 
