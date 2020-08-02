@@ -63,8 +63,12 @@ h1 {
 
 .footer {
     position: bottom;
+    
 }
 
+p2 {
+    text-align: center;
+}
 
 .category {
     align-items: center;
@@ -77,7 +81,7 @@ h1 {
     text-align: center;
     font-family: 'Arvo', serif;
     color: white;
-    
+}   
 
 button {
     background-color:#000000;
@@ -90,5 +94,5 @@ button {
     margin-left: 15px;
     font-size: 16px;
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-
 }
+
