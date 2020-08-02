@@ -31,7 +31,7 @@ $.ajax({
     // create an element for each item to be displayed
 for (i = 0; i < response.drinks.length; i++){
 
-    clearSearch();
+    
     
 
     var drink = document.getElementById("drinksView");
@@ -191,12 +191,17 @@ for (i = 0; i < response.drinks.length; i++){
     
 })
 });
+
+
 });
 
-function clearSearch() {
+var clearSearch = document.getElementById("clearSearch");
+
+clearSearch.addEventListener("click", function() {
+    $("#drinksView").empty();
     
-    document.getElementById("drinksView").empty();
-  };
+});
+
 
 
 
@@ -211,7 +216,7 @@ fatButton.addEventListener ('click', function(event){
     console.log(fatEntry.value, 'Henry');
     // let recipeDiv = $(".recipeDiv");
     
-    var key = 'e2f2b2eb5b984038a6729ef1cc1215f9'; // CHANGE THIS TO YOUR API KEY
+    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${fatEntry.value}$number=50`)
         .then(function(response) {
             return response.json();
@@ -271,7 +276,14 @@ fatButton.addEventListener ('click', function(event){
         });
         });
 
-} )  
+});
+
+var clearSearch = document.getElementById("clearSearch");
+
+clearSearch.addEventListener("click", function() {
+    $(".recipeDiv").empty();
+    
+});
 
 
 var sugarButton= document.getElementById('sugarBtn');
@@ -302,11 +314,13 @@ sugarButton.addEventListener('click', function(event){
                         if (json[i].healthScore < 20) {
                         // Retrieving the URL for the image
                         var imgURL = json[i].image;
+                        imgURL.style.width = "200px";
 
 
                     
                       //Creating element to hold image
                        var image = $('<img>').attr('src', imgURL);
+
                     
                    
                         
@@ -347,7 +361,14 @@ sugarButton.addEventListener('click', function(event){
         });
         });
 
-} )  
+});
+
+var clearSearch = document.getElementById("clearSearch");
+
+clearSearch.addEventListener("click", function() {
+    $(".recipeDiv").empty();
+    
+})
 
 
 
