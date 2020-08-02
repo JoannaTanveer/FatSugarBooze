@@ -2,12 +2,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
 
-
-
-
-
-
-
 var boozeButton = document.getElementById("boozeBtn");
 
 
@@ -23,7 +17,7 @@ boozeButton.addEventListener('click', function(event){
 
     // console.log(boozeEntry.value, "booze")
     
-
+    
 
 
 
@@ -38,77 +32,18 @@ $.ajax({
 for (i = 0; i < response.drinks.length; i++){
 
     var drink = document.getElementById("drinksView");
-    var drinkName = response.drinks[0].strDrink;  
+    var drinkName = response.drinks[i].strDrink;  
     var displayDrinkName = document.createElement("p");
+    displayDrinkName.style.fontWeight = "bold";
     displayDrinkName.textContent = drinkName;
     drink.appendChild(displayDrinkName);
     
     var drinkThumbnail = response.drinks[i].strDrinkThumb;
     var displayThumbnail = document.createElement("img");
-    displayThumbnail.src= drinkThumbnail;
+    displayThumbnail.style.width = "200px";
+    displayThumbnail.src = drinkThumbnail;
     drink.appendChild(displayThumbnail);
     
-
-    
-    var ingredients = response.drinks[i].strIngredient1;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-    if (ingredients === null, function(){
-        displayIngredients.addClass("display");
-    });
-        
-    
-    var ingredients = response.drinks[i].strIngredient2;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-    if (ingredients === null, function(){
-        displayIngredients.addClass("display");
-    }); 
-        
-    
-    var ingredients = response.drinks[i].strIngredient3;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-
-    if (ingredients === null, function(){
-        displayIngredients.addClass("display");
-    });
-        
-
-
-    
-    var ingredients = response.drinks[i].strIngredient4;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-
-
-    var ingredients = response.drinks[i].strIngredient5;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-    if (ingredients === null, function() {
-        displayIngredients.addClass("display");
-    });      
-
-    
-    var ingredients = response.drinks[i].strIngredient6;
-    var displayIngredients = document.createElement("p")
-    displayIngredients.textContent = ingredients;
-    drink.appendChild(displayIngredients);
-
-    if (ingredients === null, function() {
-        displayIngredients.addClass("display");
-    });
-        
     var measurements = response.drinks[i].strMeasure1;
     var displayMeasurements = document.createElement("p");
     displayMeasurements.textContent = measurements;
@@ -117,8 +52,18 @@ for (i = 0; i < response.drinks.length; i++){
     if (measurements === null, function() {
         displayMeasurements.addClass("display");
     });
-
     
+    var ingredients = response.drinks[i].strIngredient1;
+    var displayIngredients = document.createElement("span");
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+
+
+
     var measurements = response.drinks[i].strMeasure2;
     var displayMeasurements = document.createElement("p");
     displayMeasurements.textContent = measurements;
@@ -127,8 +72,18 @@ for (i = 0; i < response.drinks.length; i++){
     if (measurements === null, function() {
         displayMeasurements.addClass("display");
     });
-
     
+    var ingredients = response.drinks[i].strIngredient2;
+    var displayIngredients = document.createElement("span");
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
+
+
     var measurements = response.drinks[i].strMeasure3;
     var displayMeasurements = document.createElement("p");
     displayMeasurements.textContent = measurements;
@@ -138,6 +93,16 @@ for (i = 0; i < response.drinks.length; i++){
         displayMeasurements.addClass("display");
     });
     
+    var ingredients = response.drinks[i].strIngredient3;
+    var displayIngredients = document.createElement("span")
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    });
+        
+
     
     var measurements = response.drinks[i].strMeasure4;
     var displayMeasurements = document.createElement("p");
@@ -148,7 +113,16 @@ for (i = 0; i < response.drinks.length; i++){
         displayMeasurements.addClass("display");
     });
 
-    
+    var ingredients = response.drinks[i].strIngredient4;
+    var displayIngredients = document.createElement("span")
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function(){
+        displayIngredients.addClass("display");
+    }); 
+        
+
     var measurements = response.drinks[i].strMeasure5;
     var displayMeasurements = document.createElement("p");
     displayMeasurements.textContent = measurements;
@@ -158,7 +132,16 @@ for (i = 0; i < response.drinks.length; i++){
         displayMeasurements.addClass("display");
     });
 
-    
+    var ingredients = response.drinks[i].strIngredient5;
+    var displayIngredients = document.createElement("span")
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
+    });      
+
+
     var measurements = response.drinks[i].strMeasure6;
     var displayMeasurements = document.createElement("p");
     displayMeasurements.textContent = measurements;
@@ -166,6 +149,15 @@ for (i = 0; i < response.drinks.length; i++){
 
     if (measurements === null, function() {
         displayMeasurements.addClass("display");
+    });
+    
+    var ingredients = response.drinks[i].strIngredient6;
+    var displayIngredients = document.createElement("span")
+    displayIngredients.textContent = ingredients;
+    displayMeasurements.appendChild(displayIngredients);
+
+    if (ingredients === null, function() {
+        displayIngredients.addClass("display");
     });
 
     
@@ -309,11 +301,15 @@ sugarButton.addEventListener('click', function(event){
                         var websiteURL = json[i].sourceUrl
 
                         //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
+                        // var anchorTab =$('<a>').prop('target', '_blank')
                         // Appending the image
                         anchor.append(image); 
+                        anchor.append(titleDisplay);
+                        // anchor.append(anchorTab);
                         //Appending <a> to thumbnail 
                         recipeDiv.append(anchor);
+                        // recipeDiv.append(anchorTab);
 
                         //----------------------------------------------------------------
                         //Retrieving URL for HealthScore
@@ -331,8 +327,8 @@ sugarButton.addEventListener('click', function(event){
 
 
 
+
            
                   
-
 
 
