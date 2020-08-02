@@ -90,3 +90,7 @@ h1{
     width: 20px;
     height: 20px;
 }
+
+.firstIngredient {
+    display: inline-block;
+}
