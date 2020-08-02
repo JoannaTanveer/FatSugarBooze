@@ -66,13 +66,21 @@ h1 {
     
 }
 
+
+#copyright {
+     
+    font-size: x-small;
+}
+
 .p2 {
     text-align: center;
+    font-size: x-small;
 }
 
 .category {
     align-items: center;
     display: flex;
+    font-size: large;
 }
 
 
@@ -81,6 +89,10 @@ h1 {
     height: 20px;
 }
 
+
+.firstIngredient {
+    display: inline-block;
+}
 
 .welcome {
     font-size: xx-large;
