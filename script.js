@@ -209,7 +209,7 @@ fatButton.addEventListener ('click', function(event){
                     for (i = 0; i< json.length; i++ ) {
                     // Creating element to hold each recipe
                     let recipeDiv = $(".recipeDiv");
-                    --------------------------------------------------------------
+                    //--------------------------------------------------------------
                         if (json[i].healthScore < 20) {
                         // Retrieving the URL for the image
                         var imgURL = json[i].image;
@@ -222,7 +222,7 @@ fatButton.addEventListener ('click', function(event){
                         
                         
 
-                       ----------------------------------------------------------------
+                       //----------------------------------------------------------------
                      // Retrieving the recipe title
                        var title = json[i].title //may need to parse?
 
@@ -231,7 +231,7 @@ fatButton.addEventListener ('click', function(event){
 
                        //Appending title to recipeDiv
                         recipeDiv.append(titleDisplay);
-                        ----------------------------------------------------------------
+                        //----------------------------------------------------------------
                        //Retrieving URL for recipe
                           var websiteURL = json[i].sourceUrl
 
@@ -309,11 +309,15 @@ sugarButton.addEventListener('click', function(event){
                         var websiteURL = json[i].sourceUrl
 
                         //create <a> tag to make thumbnail clickable
-                        var anchor = $('<a>').attr('href', websiteURL);  //does this attach to image automatically?
+                        var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
+                        // var anchorTab =$('<a>').prop('target', '_blank')
                         // Appending the image
                         anchor.append(image); 
+                        anchor.append(titleDisplay);
+                        // anchor.append(anchorTab);
                         //Appending <a> to thumbnail 
                         recipeDiv.append(anchor);
+                        // recipeDiv.append(anchorTab);
 
                         //----------------------------------------------------------------
                         //Retrieving URL for HealthScore
@@ -331,11 +335,7 @@ sugarButton.addEventListener('click', function(event){
 
 
 
-})
 
-    
-});
-    
            
                   
 
