@@ -66,13 +66,15 @@ h1 {
     
 }
 
-p2 {
+#copyright {
     text-align: center;
+    font-size: x-small;
 }
 
 .category {
     align-items: center;
     display: flex;
+    font-size: large;
 }
 
 
@@ -81,11 +83,10 @@ p2 {
     height: 20px;
 }
 
-<<<<<<< HEAD
+
 .firstIngredient {
     display: inline-block;
 }
-=======
 
 .welcome {
     font-size: xx-large;
@@ -107,4 +108,3 @@ button {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
->>>>>>> 405eda805b70d6adb6202c5eb6ce81729687d896
