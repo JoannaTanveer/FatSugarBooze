@@ -293,7 +293,7 @@ sugarButton.addEventListener('click', function(event){
     var sugarEntry= document.getElementById('sugarInput');
     console.log(sugarEntry.value, "sugar")
 
-    var key = 'e2f2b2eb5b984038a6729ef1cc1215f9'; // CHANGE THIS TO YOUR API KEY
+    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${sugarEntry.value}$number=50`)
         .then(function(response) {
             return response.json();
