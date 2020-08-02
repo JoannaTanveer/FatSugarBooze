@@ -31,21 +31,28 @@ $.ajax({
     // create an element for each item to be displayed
 for (i = 0; i < response.drinks.length; i++){
 
+    clearSearch();
+    
+
     var drink = document.getElementById("drinksView");
     var drinkName = response.drinks[i].strDrink;  
     var displayDrinkName = document.createElement("p");
+    displayDrinkName.style.color = "black";
+    displayDrinkName.style.textAlign = "center";
     displayDrinkName.style.fontWeight = "bold";
     displayDrinkName.textContent = drinkName;
     drink.appendChild(displayDrinkName);
     
     var drinkThumbnail = response.drinks[i].strDrinkThumb;
     var displayThumbnail = document.createElement("img");
+    displayThumbnail.style.position = "center";
     displayThumbnail.style.width = "200px";
     displayThumbnail.src = drinkThumbnail;
     drink.appendChild(displayThumbnail);
     
     var measurements = response.drinks[i].strMeasure1;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -55,6 +62,7 @@ for (i = 0; i < response.drinks.length; i++){
     
     var ingredients = response.drinks[i].strIngredient1;
     var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -66,6 +74,7 @@ for (i = 0; i < response.drinks.length; i++){
 
     var measurements = response.drinks[i].strMeasure2;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -75,6 +84,7 @@ for (i = 0; i < response.drinks.length; i++){
     
     var ingredients = response.drinks[i].strIngredient2;
     var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -86,6 +96,7 @@ for (i = 0; i < response.drinks.length; i++){
 
     var measurements = response.drinks[i].strMeasure3;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -94,7 +105,8 @@ for (i = 0; i < response.drinks.length; i++){
     });
     
     var ingredients = response.drinks[i].strIngredient3;
-    var displayIngredients = document.createElement("span")
+    var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -106,6 +118,7 @@ for (i = 0; i < response.drinks.length; i++){
     
     var measurements = response.drinks[i].strMeasure4;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -114,7 +127,8 @@ for (i = 0; i < response.drinks.length; i++){
     });
 
     var ingredients = response.drinks[i].strIngredient4;
-    var displayIngredients = document.createElement("span")
+    var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -125,6 +139,7 @@ for (i = 0; i < response.drinks.length; i++){
 
     var measurements = response.drinks[i].strMeasure5;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -133,7 +148,8 @@ for (i = 0; i < response.drinks.length; i++){
     });
 
     var ingredients = response.drinks[i].strIngredient5;
-    var displayIngredients = document.createElement("span")
+    var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -144,6 +160,7 @@ for (i = 0; i < response.drinks.length; i++){
 
     var measurements = response.drinks[i].strMeasure6;
     var displayMeasurements = document.createElement("p");
+    displayMeasurements.style.color = "black";
     displayMeasurements.textContent = measurements;
     drink.appendChild(displayMeasurements);
 
@@ -152,7 +169,8 @@ for (i = 0; i < response.drinks.length; i++){
     });
     
     var ingredients = response.drinks[i].strIngredient6;
-    var displayIngredients = document.createElement("span")
+    var displayIngredients = document.createElement("span");
+    displayIngredients.style.color = "black";
     displayIngredients.textContent = ingredients;
     displayMeasurements.appendChild(displayIngredients);
 
@@ -163,13 +181,22 @@ for (i = 0; i < response.drinks.length; i++){
     
     var instructions = response.drinks[i].strInstructions;
     var displayInstructions = document.createElement("p");
+    displayInstructions.style.color = "black";
     displayInstructions.textContent = instructions;
     drink.appendChild(displayInstructions);
+
+    // document.getElementById("drinksView").empty();
 }
 
+    
 })
 });
 });
+
+function clearSearch() {
+    
+    document.getElementById("drinksView").empty();
+  };
 
 
 
