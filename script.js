@@ -316,7 +316,7 @@ sugarButton.addEventListener('click', function(event){
                         if (json[i].healthScore < 20) {
                         // Retrieving the URL for the image
                         var imgURL = json[i].image;
-                        imgURL.style.width = "200px";
+                        
 
 
                     
