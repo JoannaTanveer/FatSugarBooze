@@ -11,11 +11,11 @@ boozeButton.addEventListener('click', function(event){
 
     let apiKeyBooze = '1';
     let queryURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${ boozeEntry.value }`;
-    // let ingredientsURLBooze = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${ boozeEntry }`;
+    
 
 
 
-    // console.log(boozeEntry.value, "booze")
+    
     
     
 
@@ -185,7 +185,7 @@ for (i = 0; i < response.drinks.length; i++){
     displayInstructions.textContent = instructions;
     drink.appendChild(displayInstructions);
 
-    // document.getElementById("drinksView").empty();
+    
 }
 
     
@@ -214,9 +214,9 @@ fatButton.addEventListener ('click', function(event){
     event.preventDefault();
     var fatEntry= document.getElementById('fatInput');
     console.log(fatEntry.value, 'Henry');
-    // let recipeDiv = $(".recipeDiv");
+   
     
-    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
+    var key = '85dd435db770493c8aedbd1a1e12e596'; 
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${fatEntry.value}$number=50`)
         .then(function(response) {
             return response.json();
@@ -228,7 +228,7 @@ fatButton.addEventListener ('click', function(event){
                     return response.json();
                 })
                 .then(function(json) {
-                  console.log(json)  
+                   
                     
                     for (i = 0; i< json.length; i++ ) {
                     // Creating element to hold each recipe
@@ -248,7 +248,7 @@ fatButton.addEventListener ('click', function(event){
 
                        //----------------------------------------------------------------
                      // Retrieving the recipe title
-                       var title = json[i].title //may need to parse?
+                       var title = json[i].title;
 
                         //creating <p> tag to display title
                         var titleDisplay = $('<p class="title">').text(title);
@@ -257,7 +257,7 @@ fatButton.addEventListener ('click', function(event){
                         recipeDiv.append(titleDisplay);
                         //----------------------------------------------------------------
                        //Retrieving URL for recipe
-                          var websiteURL = json[i].sourceUrl
+                          var websiteURL = json[i].sourceUrl;
 
                        //create <a> tag to make thumbnail clickable
                         var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
@@ -268,8 +268,8 @@ fatButton.addEventListener ('click', function(event){
 
                         //----------------------------------------------------------------
                          //Retrieving URL for HealthScore
-                         var healthURL = json[i].healthScore
-                        console.log(healthURL, 'healthscore');
+                         var healthURL = json[i].healthScore;
+                        
                        }}
                 
 
@@ -291,9 +291,11 @@ var sugarButton= document.getElementById('sugarBtn');
 sugarButton.addEventListener('click', function(event){
     event.preventDefault();
     var sugarEntry= document.getElementById('sugarInput');
-    console.log(sugarEntry.value, "sugar")
+   
 
-    var key = '85dd435db770493c8aedbd1a1e12e596'; // CHANGE THIS TO YOUR API KEY
+
+    var key = 'e2f2b2eb5b984038a6729ef1cc1215f9'; 
+
     fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=${key}&ingredients=${sugarEntry.value}$number=50`)
         .then(function(response) {
             return response.json();
@@ -305,7 +307,7 @@ sugarButton.addEventListener('click', function(event){
                     return response.json();
                 })
                 .then(function(json) {
-                  console.log(json)  
+                   
                     
                     for (i = 0; i< json.length; i++ ) {
                     // Creating element to hold each recipe
@@ -329,7 +331,7 @@ sugarButton.addEventListener('click', function(event){
 
                         //----------------------------------------------------------------
                         // Retrieving the recipe title
-                        var title = json[i].title //may need to parse?
+                        var title = json[i].title;
 
                         //creating <p> tag to display title
                         var titleDisplay = $('<p class="title">').text(title);
@@ -339,7 +341,7 @@ sugarButton.addEventListener('click', function(event){
 
                         //----------------------------------------------------------------
                         //Retrieving URL for recipe
-                        var websiteURL = json[i].sourceUrl
+                        var websiteURL = json[i].sourceUrl;
 
                         //create <a> tag to make thumbnail clickable
                         var anchor = $('<a>', {href: websiteURL, target:"_blank"});  
@@ -350,12 +352,12 @@ sugarButton.addEventListener('click', function(event){
 
                         //Appending <a> to thumbnail 
                         recipeDiv.append(anchor);
-                        // recipeDiv.append(anchorTab);
+                        
 
                         //----------------------------------------------------------------
                         //Retrieving URL for HealthScore
-                        var healthURL = json[i].healthScore
-                        console.log(healthURL, 'healthscore');
+                        var healthURL = json[i].healthScore;
+                        
                       }}
                 
         });
