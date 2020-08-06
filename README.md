@@ -6,4 +6,4 @@ Enjoy our APP!
 
 https://joannatanveer.github.io/FatSugarBooze/
 
-
+![screenshot](FSB_screenshot.png)
